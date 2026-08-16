@@ -59,3 +59,18 @@ sky:
     user-secret-key: ${JWT_USER_SECRET}
     user-ttl: ${JWT_USER_TTL:7200000}
     user-token-name: ${JWT_USER_TOKEN_NAME:authentication}
+  alioss:
+    endpoint: ${ALIOSS_ENDPOINT:}
+    access-key-id: ${ALIOSS_ACCESS_KEY_ID:}
+    access-key-secret: ${ALIOSS_ACCESS_KEY_SECRET:}
+    bucket-name: ${ALIOSS_BUCKET_NAME:}
+  wechat:
+    appid: ${WECHAT_APPID:}
+    secret: ${WECHAT_SECRET:}
+    mchid: ${WECHAT_MCHID:}
+    mch-serial-no: ${WECHAT_MCH_SERIAL_NO:}
+    private-key-file-path: ${WECHAT_PRIVATE_KEY_FILE:}
+    api-v3-key: ${WECHAT_API_V3_KEY:}
+    we-chat-pay-cert-file-path: ${WECHAT_PAY_CERT_FILE:}
+    notify-url: ${WECHAT_NOTIFY_URL:}
+    refund-notify-url: ${WECHAT_REFUND_NOTIFY_URL:}
