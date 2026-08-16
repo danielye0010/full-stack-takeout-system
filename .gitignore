@@ -1,0 +1,33 @@
+# Maven / Java
+**/target/
+*.class
+*.jar
+*.war
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+
+# OS / logs
+.DS_Store
+Thumbs.db
+*.log
+
+# Local credentials and overrides
+.env
+.env.*
+!.env.example
+**/application-env.yml
+**/application-local.yml
+*.pem
+*.p12
+*.pfx
+*.jks
+
+# Runtime uploads / exports
+uploads/
+reports/
