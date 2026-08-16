@@ -1,27 +1,24 @@
 server:
-  port: 8080
+  port: ${SERVER_PORT:8080}
 
 spring:
   profiles:
-    active: dev
-    include:
-      - env # 在当前目录下新建 application-env.yml 配置敏感信息
+    active: ${SPRING_PROFILES_ACTIVE:dev}
   main:
     allow-circular-references: true
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver # 驱动名称
-    url: jdbc:mysql://localhost:3306/sky_take_out
-    username: root
-    password: sql_1
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${DB_URL:jdbc:mysql://localhost:3306/sky_take_out}
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:}
     type: com.alibaba.druid.pool.DruidDataSource
   data:
     redis:
-      host: 127.0.0.1
-      port: 6379
-      password: 123456
+      host: ${REDIS_HOST:127.0.0.1}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
       timeout: 3000ms
 
-# knife4j配置
 springdoc:
   swagger-ui:
     path: /swagger-ui.html
@@ -32,7 +29,7 @@ springdoc:
   group-configs:
     - group: "default"
       paths-to-match: "/**"
-      packages-to-scan: com.github.xiaoymin.boot3
+      packages-to-scan: com.sky
   default-flat-param-object: true
 
 knife4j:
@@ -41,11 +38,9 @@ knife4j:
     language: zh_cn
 
 mybatis:
-  #mapper配置文件
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.sky.entity
   configuration:
-    #开启驼峰命名
     map-underscore-to-camel-case: true
 
 logging:
@@ -58,13 +53,9 @@ logging:
 
 sky:
   jwt:
-    # 设置jwt签名加密时使用的秘钥
-    admin-secret-key: itcast
-    # 设置jwt过期时间
-    admin-ttl: 7200000
-    # 设置前端传递过来的令牌名称
-    admin-token-name: token
-    # 小程序的jwt配置
-    user-secret-key: itcast
-    user-ttl: 7200000
-    user-token-name: authentication
+    admin-secret-key: ${JWT_ADMIN_SECRET}
+    admin-ttl: ${JWT_ADMIN_TTL:7200000}
+    admin-token-name: ${JWT_ADMIN_TOKEN_NAME:token}
+    user-secret-key: ${JWT_USER_SECRET}
+    user-ttl: ${JWT_USER_TTL:7200000}
+    user-token-name: ${JWT_USER_TOKEN_NAME:authentication}
