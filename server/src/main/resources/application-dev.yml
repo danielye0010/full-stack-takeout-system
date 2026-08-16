@@ -1,8 +1,5 @@
-# sky:
-#   datasource:
-#     driver-class-name: com.mysql.cj.jdbc.Driver
-#     host: localhost
-#     port: 3306
-#     database: sky_take_out
-#     username: root
-#     password: sql_1
+# Development profile
+#
+# Runtime credentials and service endpoints are configured through environment
+# variables referenced by application.yml. Keep machine-specific overrides out
+# of version control.
